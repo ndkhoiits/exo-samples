@@ -10,7 +10,7 @@
 </head>
 <body>
   <div class="main">
-	  <h3>This is protected resource. Principal <%=request.getUserPrincipal()%></h3>
+	  <h3>This is protected resource. Principal <%=request.getParameter("oauth_user_principal")%></h3>
   </div>
 </body>
 </html>

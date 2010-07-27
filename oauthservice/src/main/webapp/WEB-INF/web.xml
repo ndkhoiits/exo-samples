@@ -13,10 +13,15 @@
       <param-name>consumer</param-name>
       <param-value>exo1</param-value>
     </init-param>
+    
   </filter>
   <filter>
     <filter-name>OAuthRequestWrapperFilter</filter-name>
     <filter-class>org.exoplatform.ws.security.oauth.http.OAuthRequestWrapperFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>DisplayInfo</filter-name>
+    <filter-class>servlet.DisplayInfo</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>PortalContainerInitializedFilter</filter-name>
@@ -28,6 +33,11 @@
   </filter-mapping>
   <filter-mapping>
     <filter-name>OAuthRequestWrapperFilter</filter-name>
+    <url-pattern>/protected/*</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+    <filter-name>DisplayInfo</filter-name>
     <url-pattern>/protected/*</url-pattern>
   </filter-mapping>
 
