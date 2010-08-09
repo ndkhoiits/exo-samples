@@ -28,5 +28,6 @@
   </dependencies>
   <modules>
     <module>oauthservice</module>
+    <module>spring-mvc</module>
   </modules>
 </project>

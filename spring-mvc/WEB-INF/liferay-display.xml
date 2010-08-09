@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+ <display>
+ 	<category name="category.helloWorld">
+ 		<portlet id="helloWorld" />
+ 	</category>
+ </display>
