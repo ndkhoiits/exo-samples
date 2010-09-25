@@ -45,8 +45,8 @@ public abstract class Document extends File
     */
    @OneToOne
    @Owner
-   @MappedBy("jcr:noidung")
-   protected abstract Content getContent();
+   @MappedBy("jcr:content")
+   public abstract Content getContent();
 
    /**
     * Set the document content.
