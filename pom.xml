@@ -29,5 +29,7 @@
   <modules>
     <module>oauthservice</module>
     <module>spring-mvc</module>
+    <module>jcrportlet</module>
+    <module>rest</module>
   </modules>
 </project>
