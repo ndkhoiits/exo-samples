@@ -4,9 +4,9 @@
   xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>khoind.samples</artifactId>
-    <groupId>khoind.samples</groupId>
-    <version>1.0-SNAPSHOT</version>
+     <groupId>org.exoplatform.portal</groupId>
+     <artifactId>exo.portal.parent</artifactId>
+     <version>3.2.0-Beta01-SNAPSHOT</version>
   </parent>
   <groupId>khoind.samples</groupId>
   <artifactId>khoind.samples.oauthservice</artifactId>
