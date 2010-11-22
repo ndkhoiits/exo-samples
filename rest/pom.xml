@@ -10,7 +10,7 @@
   <groupId>khoind.samples</groupId>
   <artifactId>khoind.samples.rest</artifactId>
   <version>1.0</version>
-  <name>calculator</name>
+  <name>hello</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>

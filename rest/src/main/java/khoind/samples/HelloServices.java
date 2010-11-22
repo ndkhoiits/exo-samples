@@ -31,8 +31,8 @@ import org.exoplatform.services.rest.resource.ResourceContainer;
  * @author <a href="mailto:ndkhoi168@gmail.com">Nguyen Duc Khoi</a>
  */
 
-@Path("calculator")
-public class Calculator implements ResourceContainer
+@Path("HelloServices")
+public class HelloServices implements ResourceContainer
 {
    @GET
    @Path("/hello/username")

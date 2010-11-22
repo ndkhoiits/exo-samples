@@ -26,7 +26,7 @@
    xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
 
   <component>
-    <type>khoind.samples.Calculator</type>
+    <type>khoind.samples.HelloServices</type>
   </component>
 
 </configuration>
