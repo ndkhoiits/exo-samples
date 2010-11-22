@@ -10,7 +10,7 @@
   </parent>
   <groupId>khoind.samples</groupId>
   <artifactId>khoind.samples.oauthservice</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>war</packaging>
   <name>khoind.samples.oauthservice Maven Webapp</name>
   <url>http://maven.apache.org</url>
