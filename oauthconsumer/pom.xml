@@ -50,5 +50,9 @@
    </properties>
    <build>
       <finalName>oauth-consumer-config</finalName>
+      <pluginManagement>
+         <plugins>
+         </plugins>
+      </pluginManagement>
    </build>
 </project>

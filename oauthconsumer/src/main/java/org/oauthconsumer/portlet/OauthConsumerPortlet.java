@@ -20,12 +20,15 @@
 package org.oauthconsumer.portlet;
 
 import org.oauthconsumer.service.OAuthStoreServicePortlet;
+import org.w3c.dom.Element;
 
 import java.io.IOException;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.GenericPortlet;
+import javax.portlet.MimeResponse;
+import javax.portlet.PortalContext;
 import javax.portlet.PortletException;
 import javax.portlet.ProcessAction;
 import javax.portlet.RenderMode;
@@ -38,11 +41,22 @@ import javax.portlet.RenderResponse;
  */
 public class OauthConsumerPortlet extends GenericPortlet
 {
+   @Override
+   protected void doHeaders(RenderRequest request, RenderResponse response)
+   {
+      super.doHeaders(request, response);
+      PortalContext portalContext = request.getPortalContext();
+      Element cssElement = response.createElement("link");
+      cssElement.setAttribute("href", response.encodeURL(request.getContextPath() + "/skin/DefaultStylesheet.css"));
+      cssElement.setAttribute("rel", "stylesheet");
+      cssElement.setAttribute("type", "text/css");
+      
+      response.addProperty(MimeResponse.MARKUP_HEAD_ELEMENT, cssElement);
+      
+   }
    @RenderMode(name = "view")
    public void doView1(RenderRequest request, RenderResponse response) throws PortletException, IOException
    {
-      OAuthStoreServicePortlet oAuthStore = new OAuthStoreServicePortlet();
-      oAuthStore.addKey();
       getPortletContext().getRequestDispatcher("/jsp/index.jsp").include(request, response);
    }
    
@@ -55,6 +69,14 @@ public class OauthConsumerPortlet extends GenericPortlet
    @ProcessAction(name = "addConsumer")
    public void addConsumer(ActionRequest request, ActionResponse response)
    {
-      
+      String consumerKey = request.getParameter("consumer_key");
+      String consumerSecret = request.getParameter("consumer_secret");
+      String keyTypeStr = request.getParameter("key_type");
+      String callbackURL = request.getParameter("callback_url");
+      String gadgetURIStr = request.getParameter("gadget_uri");
+      String serviceName = request.getParameter("service_name");
+
+      OAuthStoreServicePortlet oAuthStore = new OAuthStoreServicePortlet();
+      oAuthStore.addKey(consumerKey, consumerSecret, keyTypeStr, callbackURL, gadgetURIStr, serviceName);
    }
 }

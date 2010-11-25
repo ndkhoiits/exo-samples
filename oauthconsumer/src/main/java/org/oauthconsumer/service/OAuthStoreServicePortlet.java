@@ -21,6 +21,9 @@ package org.oauthconsumer.service;
 
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.portal.gadget.core.GadgetConsumerInfoService;
+
+import java.net.URISyntaxException;
 
 /**
  * @author <a href="mailto:khoi.nguyen@exoplatform.com">Nguyen Duc Khoi</a>  
@@ -28,9 +31,19 @@ import org.exoplatform.container.PortalContainer;
  */
 public class OAuthStoreServicePortlet
 {
-   public boolean addKey()
+   public boolean addKey(String consumerKey, String consumerSecret, String keyTypeStr, String callbackURL, String gadgetURIStr, String serviceName)
    {
       ExoContainer container = PortalContainer.getInstance();
+      GadgetConsumerInfoService service =
+         (GadgetConsumerInfoService)container.getComponentInstance(GadgetConsumerInfoService.class);
+      try
+      {
+         service.addConsumerInfo1(consumerKey, consumerSecret, keyTypeStr, callbackURL, gadgetURIStr, serviceName);
+      }
+      catch (URISyntaxException exp)
+      {
+
+      }
       return true;
    }
 }
