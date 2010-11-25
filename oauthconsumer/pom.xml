@@ -3,12 +3,7 @@
    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
    xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <modelVersion>4.0.0</modelVersion>
-   <parent>
-      <artifactId>khoind.samples</artifactId>
-      <groupId>khoind.samples</groupId>
-      <version>1.0-SNAPSHOT</version>
-   </parent>
-   <groupId>khoind.samples</groupId>
+   <groupId>exo-utilities.oauth-consumer-management</groupId>
    <artifactId>oauthconsumer</artifactId>
    <version>1.0-SNAPSHOT</version>
    <packaging>war</packaging>
@@ -49,7 +44,7 @@
       <gatein.version>3.2.0-Beta01-SNAPSHOT</gatein.version>
    </properties>
    <build>
-      <finalName>oauth-consumer-config</finalName>
+      <finalName>oauth-consumer-management</finalName>
       <pluginManagement>
          <plugins>
          </plugins>

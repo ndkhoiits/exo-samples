@@ -29,9 +29,9 @@ import java.net.URISyntaxException;
  * @author <a href="mailto:khoi.nguyen@exoplatform.com">Nguyen Duc Khoi</a>  
  * Nov 24, 2010
  */
-public class OAuthStoreServicePortlet
+public class StorageConsumerInfo
 {
-   public boolean addKey(String consumerKey, String consumerSecret, String keyTypeStr, String callbackURL, String gadgetURIStr, String serviceName)
+   public void addKey(String consumerKey, String consumerSecret, String keyTypeStr, String callbackURL, String gadgetURIStr, String serviceName)
    {
       ExoContainer container = PortalContainer.getInstance();
       GadgetConsumerInfoService service =
@@ -42,8 +42,7 @@ public class OAuthStoreServicePortlet
       }
       catch (URISyntaxException exp)
       {
-
+         exp.printStackTrace();
       }
-      return true;
    }
 }

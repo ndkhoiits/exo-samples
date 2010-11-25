@@ -26,8 +26,8 @@
 
   <portlet>
     <description xml:lang="EN">The portlet for configuring the oAuth consumer</description>
-    <portlet-name>oAuthConsumer</portlet-name>
-    <display-name>oAuth Consumer Portlet</display-name>
+    <portlet-name>oAuthConsumerManagement</portlet-name>
+    <display-name>oAuth Consumer Managemenet Portlet</display-name>
     <portlet-class>org.oauthconsumer.portlet.OauthConsumerPortlet</portlet-class>
     <supports>
       <mime-type>text/html</mime-type>

@@ -19,7 +19,7 @@
 
 package org.oauthconsumer.portlet;
 
-import org.oauthconsumer.service.OAuthStoreServicePortlet;
+import org.oauthconsumer.service.StorageConsumerInfo;
 import org.w3c.dom.Element;
 
 import java.io.IOException;
@@ -45,7 +45,6 @@ public class OauthConsumerPortlet extends GenericPortlet
    protected void doHeaders(RenderRequest request, RenderResponse response)
    {
       super.doHeaders(request, response);
-      PortalContext portalContext = request.getPortalContext();
       Element cssElement = response.createElement("link");
       cssElement.setAttribute("href", response.encodeURL(request.getContextPath() + "/skin/DefaultStylesheet.css"));
       cssElement.setAttribute("rel", "stylesheet");
@@ -55,7 +54,7 @@ public class OauthConsumerPortlet extends GenericPortlet
       
    }
    @RenderMode(name = "view")
-   public void doView1(RenderRequest request, RenderResponse response) throws PortletException, IOException
+   public void doView(RenderRequest request, RenderResponse response) throws PortletException, IOException
    {
       getPortletContext().getRequestDispatcher("/jsp/index.jsp").include(request, response);
    }
@@ -76,7 +75,7 @@ public class OauthConsumerPortlet extends GenericPortlet
       String gadgetURIStr = request.getParameter("gadget_uri");
       String serviceName = request.getParameter("service_name");
 
-      OAuthStoreServicePortlet oAuthStore = new OAuthStoreServicePortlet();
+      StorageConsumerInfo oAuthStore = new StorageConsumerInfo();
       oAuthStore.addKey(consumerKey, consumerSecret, keyTypeStr, callbackURL, gadgetURIStr, serviceName);
    }
 }
