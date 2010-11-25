@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app>
+   <portlet>
+      <portlet-name>JSR286Sample</portlet-name>
+      <display-name>JSR 286 Sample Portlet</display-name>
+      <portlet-class>org.exoplatform.samples.JSR286SamplePortlet</portlet-class>
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>view</portlet-mode>
+      </supports>
+      <portlet-info>
+         <title>Sample</title>
+         <short-title>sample</short-title>
+         <keywords>Samples</keywords>
+      </portlet-info>
+   </portlet>
+</portlet-app>
