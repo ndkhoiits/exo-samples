@@ -13,20 +13,20 @@
 <div class="AddConsumer">
 <table align="center">
    <tr>
-      <td>Consumer key</td>
-      <td><input type="text" name="consumer_key" /></td>
-   </tr>
-   <tr>
-      <td>Consumer secret</td>
-      <td><input type="text" name="consumer_secret" /></td>
+      <td>Service Name</td>
+      <td><input type="text" name="service_name" /></td>
    </tr>
    <tr>
       <td>GadgetURI</td>
       <td><input type="text" name="gadget_uri" /></td>
    </tr>
    <tr>
-      <td>Service Name</td>
-      <td><input type="text" name="service_name" /></td>
+      <td>Consumer key</td>
+      <td><input type="text" name="consumer_key" /></td>
+   </tr>
+   <tr>
+      <td>Consumer secret</td>
+      <td><input type="text" name="consumer_secret" /></td>
    </tr>
    <tr>
       <td>Key Type</td>
