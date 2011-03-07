@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <modelVersion>4.0.0</modelVersion>
+   <parent>
+      <groupId>khoind.samples</groupId>
+      <artifactId>khoind.samples.openid</artifactId>
+      <version>1.0</version>
+   </parent>
+   <groupId>khoind.samples</groupId>
+   <artifactId>khoind.samples.openid.rest</artifactId>
+   <version>1.0</version>
+   <name>REST services</name>
+
+   <dependencies>
+      <dependency>
+         <groupId>org.exoplatform.ws</groupId>
+         <artifactId>exo.ws.rest.core</artifactId>
+         <version>${org.exoplatform.ws.version}</version>
+      </dependency>
+      <dependency>
+         <groupId>org.openid4java</groupId>
+         <artifactId>openid4java-nodeps</artifactId>
+         <version>0.9.5</version>
+      </dependency>
+   </dependencies>
+</project>
