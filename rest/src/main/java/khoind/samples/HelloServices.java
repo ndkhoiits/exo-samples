@@ -25,13 +25,27 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
+import org.exoplatform.application.gadget.Gadget;
+import org.exoplatform.application.gadget.GadgetRegistryService;
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.Query;
+import org.exoplatform.portal.config.model.Application;
+import org.exoplatform.portal.config.model.ApplicationType;
+import org.exoplatform.portal.config.model.Container;
+import org.exoplatform.portal.config.model.Dashboard;
+import org.exoplatform.portal.config.model.ModelObject;
+import org.exoplatform.portal.config.model.Page;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.rest.resource.ResourceContainer;
+import org.json.JSONObject;
+import java.util.List;
 
 /**
  * @author <a href="mailto:ndkhoi168@gmail.com">Nguyen Duc Khoi</a>
  */
 
-@Path("HelloServices")
+@Path("helloServices")
 public class HelloServices implements ResourceContainer
 {
    @GET
@@ -39,5 +53,61 @@ public class HelloServices implements ResourceContainer
    public Response hello(@QueryParam("name") String name)
    {
       return Response.created(UriBuilder.fromUri("calculator/hello").build()).entity("Hello " + name).type(MediaType.TEXT_PLAIN).status(Response.Status.OK).build();
+   }
+
+   @GET
+   @Path("/gadget")
+   public Response getGatgetList(@QueryParam("username") String username) throws Exception
+   {
+      String responseContent = "hello";
+      PortalContainer container = PortalContainer.getInstance();
+      DataStorage storage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class);
+      Query<Page> query = new Query<Page>(PortalConfig.USER_TYPE, username, Page.class);
+      List<Page> results = storage.find(query).getAll();
+      for (Page page : results)
+      {
+         String id = page.getChildren().get(0).getStorageId();
+         Application app = (Application)page.getChildren().get(0);
+         app.getType().getName();
+         Dashboard dashboard = storage.loadDashboard(id);
+         getGadget(dashboard);
+      }
+
+      return Response.created(UriBuilder.fromUri("helloServices/gadget").build()).entity(responseContent).type(MediaType.TEXT_PLAIN_TYPE).status(Response.Status.OK).build();
+
+   }
+
+   public void getGadget(Object model) throws Exception
+   {
+      if (model instanceof Container)
+      {
+         Container container = (Container) model;
+         List<ModelObject> children = container.getChildren();
+         for (Object child : children)
+         {
+            getGadget(child);
+         }
+      }
+      else if (model instanceof Application)
+      {
+         Application application = (Application)model;
+         if (((Application)model).getType() == ApplicationType.GADGET)
+         {
+            PortalContainer container = PortalContainer.getInstance();
+            DataStorage storage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class);
+            GadgetRegistryService gadgetRegistryService = (GadgetRegistryService)container.getComponentInstanceOfType(GadgetRegistryService.class);
+            String gadgetId = storage.getId(application.getState());
+            Gadget gadgetModel = gadgetRegistryService.getGadget(gadgetId);
+            System.out.println(gadgetModel.getName());
+         }
+      }
+
+   }
+
+   private String buildResponse(String dataType, List<?> reults)
+   {
+      JSONObject buffer = new JSONObject();
+
+      return null;
    }
 }

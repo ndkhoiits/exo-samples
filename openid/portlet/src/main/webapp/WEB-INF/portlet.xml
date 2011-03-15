@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app>
+   <portlet>
+      <portlet-name>OpenIdPortlet</portlet-name>
+      <display-name>OpenId Portlet</display-name>
+      <portlet-class>org.jcrportlet.portlet.JCRPortlet</portlet-class>
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>view</portlet-mode>
+         <portlet-mode>edit</portlet-mode>
+      </supports>
+      <supported-locale>en</supported-locale>
+      <portlet-info>
+         <title>OpenId Portlet</title>
+         <keywords>Sample</keywords>
+      </portlet-info>
+   </portlet>
+</portlet-app>
