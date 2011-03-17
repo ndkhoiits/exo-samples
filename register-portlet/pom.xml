@@ -2,11 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <modelVersion>4.0.0</modelVersion>
-   <parent>
-      <groupId>org.exoplatform.portal</groupId>
-      <artifactId>exo.portal.parent</artifactId>
-      <version>3.2.0-PLF-SNAPSHOT</version>
-   </parent>
    <groupId>khoind.samples</groupId>
    <artifactId>samples.register-portlet</artifactId>
    <packaging>war</packaging>
@@ -17,6 +12,9 @@
       <gatein.version>3.2.0-PLF-SNAPSHOT</gatein.version>
       <org.gatein.pc.version>2.2.0-GA</org.gatein.pc.version>
       <nl.captcha.simplecaptcha.version>1.1.1-GA-Patch01</nl.captcha.simplecaptcha.version>
+      <org.exoplatform.kernel.version>2.3.0-Beta03</org.exoplatform.kernel.version>
+      <org.exoplatform.core.version>2.4.0-Beta03</org.exoplatform.core.version>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
    </properties>
    <dependencies>
       <dependency>
