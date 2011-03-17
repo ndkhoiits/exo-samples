@@ -32,5 +32,6 @@
     <module>jcrportlet</module>
     <module>rest</module>
     <module>jsr286</module>
+    <module>register-portlet</module>
   </modules>
 </project>
