@@ -49,6 +49,7 @@ public class TestI18NFramework extends TestCase
       builder.add(Language.class);
       builder.add(NavigationNode.class);
       builder.add(Described.class);
+      builder.add(A.class);
       chromattic = builder.build();
       super.setUp();
    }
@@ -57,6 +58,7 @@ public class TestI18NFramework extends TestCase
    {
       String homepage_en = "Homepage";
       String homepage_vi = "Trangchu";
+      String description_en = "This is the homepage";
       ChromatticSession session = chromattic.openSession();
       session.addEventListener(new Injector(session));
       NavigationNode node = session.insert(NavigationNode.class, "node1");
@@ -67,7 +69,14 @@ public class TestI18NFramework extends TestCase
          described = session.create(Described.class);
       }
       
+      A a = session.getEmbedded(node, A.class);
+      if (a == null)
+      {
+         a = session.create(A.class);
+      }
+      
       session.setEmbedded(node, Described.class, described);
+      session.setEmbedded(node, A.class, a);
 
       I18NFramework framework = new I18NFramework(session);
       I18Nized i18n = framework.createI18nMixin(node);
@@ -87,9 +96,11 @@ public class TestI18NFramework extends TestCase
       Described describe_vi_new = session.getEmbedded(language, Described.class);
       assertEquals(describe_vi_new.getName(), homepage_vi);
       
-      Described describe_newvalue = i18n.putMixin(Described.class, "vi");
-      System.out.println(describe_newvalue.getName());
-      
+      A a_en = i18n.putMixin(A.class, "en");
+      a_en.setDescription(description_en);
+
+      a_en = i18n.putMixin(A.class, "en");
+      assertEquals(description_en, a_en.getDescription());
       session.save();
       session.close();
    }
